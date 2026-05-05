@@ -1,13 +1,11 @@
 require('dotenv').config();
 
-const path = require('path');
 const express = require('express');
 const logRoutes = require('./middleware/logRoutes');
 const { listTodos, createTodo, updateTodo, deleteTodo } = require('./controllers/todoControllers');
 
 const app = express();
 const PORT = process.env.PORT || 8080;
-const pathToFrontend = process.env.NODE_ENV === 'production' ? '../frontend/dist' : '../frontend';
 
 // ====================================
 // Middleware
@@ -15,7 +13,6 @@ const pathToFrontend = process.env.NODE_ENV === 'production' ? '../frontend/dist
 
 app.use(logRoutes);
 app.use(express.json());
-app.use(express.static(path.join(__dirname, pathToFrontend)));
 
 // ====================================
 // Todo routes

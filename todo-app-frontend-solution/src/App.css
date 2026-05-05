@@ -21,7 +21,7 @@ main {
 #todo-list {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 10px;
 }
 
 .todo-item {
@@ -32,6 +32,16 @@ main {
 
 .todo-complete {
   text-decoration: line-through;
+}
+
+.todo-item-controls {
+  display: flex;
+  gap: 10px;
+
+}
+
+input[type="checkbox"] {
+  transform: scale(1.7);
 }
 
 form {

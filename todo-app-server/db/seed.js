@@ -5,7 +5,7 @@ const seed = async () => {
 
   await pool.query(`
     CREATE TABLE todos (
-      id          SERIAL PRIMARY KEY,
+      todo_id          SERIAL PRIMARY KEY,
       title       TEXT NOT NULL,
       is_complete BOOLEAN NOT NULL DEFAULT false
     )

@@ -12,19 +12,22 @@ const TodoItem = ({ todo }) => {
 const TodoList = ({ todos }) => {
   return (
     <ul id="todo-list">
-      {todos.map((todo) => (
-        <TodoItem key={todo.id} todo={todo} />
-      ))}
+      {todos.map((todo) => <TodoItem key={todo.todo_id} todo={todo} />)}
     </ul>
   )
 }
 
-const AddTodoForm = ({ addTodo }) => {
+const AddTodoForm = () => {
+
+  // Standard form handling logic
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
     const title = form.elements.title.value;
-    addTodo(title);
+    if (!title) return;
+
+    console.log('posting todo...');
+
     form.reset();
   };
 
@@ -40,14 +43,10 @@ const AddTodoForm = ({ addTodo }) => {
 function App() {
   const [todos, setTodos] = useState([]);
 
-  const addTodo = (title) => {
-    console.log(`adding ${title}`);
-  }
-
   return (
     <main>
       <h1>My Todos</h1>
-      <AddTodoForm addTodo={addTodo} />
+      <AddTodoForm />
       <TodoList todos={todos} />
     </main>
   );

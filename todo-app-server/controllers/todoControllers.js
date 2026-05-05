@@ -21,11 +21,11 @@ const createTodo = async (req, res, next) => {
   }
 };
 
-// PATCH /api/todos/:id  { is_complete }
+// PATCH /api/todos/:todo_id  { is_complete }
 const updateTodo = async (req, res, next) => {
   try {
     const { is_complete } = req.body;
-    const todo = await todoModel.update(req.params.id, is_complete);
+    const todo = await todoModel.update(req.params.todo_id, is_complete);
     if (!todo) return res.status(404).send({ message: 'Todo not found' });
     res.send(todo);
   } catch (err) {
@@ -33,10 +33,10 @@ const updateTodo = async (req, res, next) => {
   }
 };
 
-// DELETE /api/todos/:id
+// DELETE /api/todos/:todo_id
 const deleteTodo = async (req, res, next) => {
   try {
-    const todo = await todoModel.destroy(req.params.id);
+    const todo = await todoModel.destroy(req.params.todo_id);
     if (!todo) return res.status(404).send({ message: 'Todo not found' });
     res.send(todo);
   } catch (err) {

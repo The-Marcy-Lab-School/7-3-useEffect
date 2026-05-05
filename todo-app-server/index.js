@@ -23,8 +23,8 @@ app.use(express.static(path.join(__dirname, pathToFrontend)));
 
 app.get('/api/todos', listTodos);
 app.post('/api/todos', createTodo);
-app.patch('/api/todos/:id', updateTodo);
-app.delete('/api/todos/:id', deleteTodo);
+app.patch('/api/todos/:todo_id', updateTodo);
+app.delete('/api/todos/:todo_id', deleteTodo);
 
 // ====================================
 // Error handling

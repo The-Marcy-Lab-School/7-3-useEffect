@@ -24,7 +24,7 @@ const TodoList = ({ todos }) => {
   )
 }
 
-const AddTodoForm = () => {
+const AddTodoForm = ({ setTodos }) => {
 
   // Standard form handling logic
   const handleSubmit = (e) => {
@@ -33,8 +33,6 @@ const AddTodoForm = () => {
     const title = form.elements.title.value;
     if (!title) return;
 
-    console.log('posting todo...');
-
     // TODO: Replace with database fetching logic
     setTodos((todos) => {
       const newTodo = {
@@ -42,6 +40,7 @@ const AddTodoForm = () => {
         is_complete: false,
         title,
       }
+      console.log('posting todo...', newTodo);
       return [...todos, newTodo];
     });
 

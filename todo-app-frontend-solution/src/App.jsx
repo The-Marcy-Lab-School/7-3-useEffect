@@ -86,10 +86,7 @@ function App() {
     <main>
       <h1>My Todos</h1>
       <AddTodoForm loadTodos={loadTodos} />
-      <TodoList
-        todos={todos}
-        loadTodos={loadTodos}
-      />
+      <TodoList todos={todos} loadTodos={loadTodos} />
     </main>
   );
 }

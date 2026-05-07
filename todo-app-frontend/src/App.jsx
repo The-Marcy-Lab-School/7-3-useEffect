@@ -2,11 +2,14 @@ import { useState } from 'react';
 import './App.css';
 
 const TodoItem = ({ todo }) => {
+  const handleToggleCheckbox = () => {
+
+  }
   return (
     <li className="todo-item">
       <span>{todo.title}</span>
       <div className="todo-item-controls">
-        <input type="checkbox" checked={todo.is_complete} />
+        <input type="checkbox" checked={todo.is_complete} onChange={handleToggleCheckbox} />
         <button>Delete</button>
       </div>
     </li>
